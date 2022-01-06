@@ -1,18 +1,17 @@
-import express from "express";
+import fastify from "fastify";
 import Http from "./Http";
 
-export default class ExpressAdapter implements Http {
+export default class FastifyAdapter implements Http {
 	app: any;
 	
 	constructor () {
-		this.app = express();
-		this.app.use(express.json());
+		this.app = fastify({});
 	}
 
 	on(url: string, method: string, fn: any): void {
-		this.app[method](url, async function (req: any, res: any) {
+		this.app[method](url, async function (req: any, rep: any) {
 			const output = await fn(req.params, req.body);
-			res.json(output);
+			rep.send(output);
 		});
 	}
 

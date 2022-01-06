@@ -6,7 +6,7 @@ export default class PgPromiseConnectionAdapter implements Connection {
 	static instance: PgPromiseConnectionAdapter;
 
 	private constructor () {
-		this.pgp = pgp()("postgres://postgres:123456@localhost:5432/app");
+		this.pgp = pgp()("postgres://postgres:root@localhost:5432/app");
 	}
 
 	static getInstance () {
