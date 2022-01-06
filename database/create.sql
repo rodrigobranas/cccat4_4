@@ -36,7 +36,7 @@ create table ccca.order (
 	issue_date timestamp,
 	freight numeric,
 	sequence integer,
-	primary key (id)
+	primary key (id_order)
 );
 
 create table ccca.order_item (
